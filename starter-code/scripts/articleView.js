@@ -48,6 +48,7 @@ articleView.handleCategoryFilter = function() {
 };
 
 articleView.handleMainNav = function() {
+  // eslint-disable-next-line
   $('.main-nav').on('click', '.tab', function(e) {
     $('.tab-content').hide();
     $('#' + $(this).data('content')).fadeIn();
@@ -91,6 +92,7 @@ articleView.create = function() {
   $('#articles').empty();
 
   // TODO: Instantiate an article based on what's in the form fields:
+  // eslint-disable-next-line
   newArticle = new Article({
     title: $('#article-title').val(),
     article: $('#article-author').val(),
@@ -105,7 +107,7 @@ articleView.create = function() {
 
   // TODO: Activate the highlighting of any code blocks:
   $('pre code').each(function(i, block) {
-    hljs.highlightBlock(block);
+    hljs.highlightBlock(block); //eslint-disable-line
   });
 
   // TODO: Show our export field, and export the new article as JSON, so it's ready to copy/paste into blogArticles.js:
@@ -115,15 +117,15 @@ articleView.create = function() {
 
 
 articleView.initIndexPage = function() {
-
+  // eslint-disable-next-line
   rawData.sort(function(a,b) {
     return (new Date(b.publishedOn)) - (new Date(a.publishedOn));
   });
-
+  // eslint-disable-next-line
   rawData.forEach(function(articleObject) {
-    articles.push(new Article(articleObject));
+    articles.push(new Article(articleObject)); //eslint-disable-line
   })
-
+  // eslint-disable-next-line
   articles.forEach(function(a){
     $('#articles').append(a.toHtml())
   });
