@@ -91,7 +91,14 @@ articleView.create = function() {
   $('#articles').empty();
 
   // TODO: Instantiate an article based on what's in the form fields:
-
+  newArticle = new Article({
+    title: $('#article-title').val(),
+    article: $('#article-author').val(),
+    authorUrl: $('#article-author-url').val(),
+    category: $('#article-category').val(),
+    body: $('#article-body').val(),
+    publishedOn: $('#article-published:checked').length ? new Date() : null
+  });
 
   // TODO: Use our interface to the Handblebars template to put this new article into the DOM:
 
